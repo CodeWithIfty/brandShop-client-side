@@ -1,7 +1,7 @@
-import React from "react";
 import { MotionConfig, motion } from "framer-motion";
 import Reviews from "./Reviews";
 export default function HeroLeft() {
+
   const variants = {
     initial: { scale: 0, opacity: 0 },
     animate: {
@@ -23,7 +23,7 @@ export default function HeroLeft() {
             className="text-3xl font-semibold font-[Verdana,Geneva,Tahoma,sans-serif]"
           >
             Wide Option Of Choice <br />
-            it's not just a food
+            its not just a food
           </motion.h1>
           <motion.h1
             initial={{ y: "100", opacity: 0 }}
