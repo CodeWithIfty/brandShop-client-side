@@ -1,21 +1,34 @@
 import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const AddProductsForm = () => {
-  const [selectedBrand, setSelectedBrand] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [rating, setRating] = useState(0);
+const UpdatePage = () => {
+  const product = useLoaderData();
+  const {
+    _id,
+    product_img,
+    product_name,
+    product_price,
+    product_description,
+    selectedBrand,
+    selectedCategory,
+    rating,
+  } = product;
+  const [updatedRating, setUpdatedRating] = useState(rating);
+  const [updatedBrand, setUpdatedSelectedBrand] = useState(selectedBrand);
+  const [updatedCategory, setUpdatedSelectedCategory] =
+    useState(selectedCategory);
 
   const handleBrandChange = (event) => {
-    setSelectedBrand(event.target.value);
+    setUpdatedSelectedBrand(event.target.value);
   };
 
   const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value);
+    setUpdatedSelectedCategory(event.target.value);
   };
 
   const handleRatingChange = (newRating) => {
-    setRating(newRating);
+    setUpdatedRating(newRating);
   };
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -24,37 +37,28 @@ const AddProductsForm = () => {
     const product_name = form.product_name.value;
     const product_price = form.product_price.value;
     const product_description = form.product_description.value;
-    const product = {
+    const updatedProduct = {
       product_img,
       product_name,
       product_price,
       product_description,
-      selectedBrand,
-      selectedCategory,
-      rating,
+      updatedBrand,
+      updatedCategory,
+      updatedRating,
     };
-    console.log(
-      product_img,
-      product_name,
-      product_price,
-      product_description,
-      selectedBrand,
-      selectedCategory,
-      rating
-    );
-    fetch("http://localhost:3000/product", {
-      method: "POST",
+    console.log(updatedProduct);
+    fetch(`http://localhost:3000/product-update/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(product),
+      body: JSON.stringify(updatedProduct),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         toast("Product Updated Successfully :)");
       });
-    form.reset();
   };
 
   return (
@@ -66,8 +70,7 @@ const AddProductsForm = () => {
             name="product_img"
             id="product_img"
             className="block py-2.5 px-0 w-full text-lg font-semibold text-yellow-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-yellow-300 focus:outline-none focus:ring-0 focus:border-yellow-300 peer"
-            placeholder=" "
-            required
+            defaultValue={product_img}
           />
           <label
             htmlFor="product_img"
@@ -82,8 +85,7 @@ const AddProductsForm = () => {
             name="product_name"
             id="product_name"
             className="block py-2.5 px-0 w-full text-lg font-semibold text-yellow-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-yellow-300 focus:outline-none focus:ring-0 focus:border-yellow-300 peer"
-            placeholder=" "
-            required
+            defaultValue={product_name}
           />
           <label
             htmlFor="product_name"
@@ -98,8 +100,7 @@ const AddProductsForm = () => {
             name="product_price"
             id="product_price"
             className="block py-2.5 px-0 w-full text-lg font-semibold text-yellow-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-yellow-300 focus:outline-none focus:ring-0 focus:border-yellow-300 peer"
-            placeholder=" "
-            required
+            defaultValue={product_price}
           />
           <label
             htmlFor="product_price"
@@ -116,7 +117,6 @@ const AddProductsForm = () => {
               value={selectedBrand}
               onChange={handleBrandChange}
               className="w-full py-2 mt-2 bg-transparent border-b-2 border-gray-600 focus:border-none  text-lg font-semibold text-yellow-900"
-              required
             >
               <option value="">Select Brand</option>
               <option value="Coca-Cola">Coca-Cola</option>
@@ -134,7 +134,6 @@ const AddProductsForm = () => {
               value={selectedCategory}
               onChange={handleCategoryChange}
               className="w-full py-2 mt-2 bg-transparent border-b-2 border-gray-600 focus:border-none  text-lg font-semibold text-yellow-900"
-              required
             >
               <option value="">Select Category</option>
               <option value="Carbonated Soft Drinks">
@@ -177,6 +176,7 @@ const AddProductsForm = () => {
         <div className="w-full">
           <textarea
             name="product_description"
+            defaultValue={product_description}
             id=""
             rows="5"
             className="w-full bg-transparent border-2 border-gray-600 p-3"
@@ -194,9 +194,8 @@ const AddProductsForm = () => {
                 type="radio"
                 name="rating"
                 className="mask mask-star-2 bg-orange-400"
-                checked={star === rating}
+                checked={star === updatedRating}
                 onChange={() => handleRatingChange(star)}
-                required
               />
             ))}
           </div>
@@ -213,4 +212,4 @@ const AddProductsForm = () => {
   );
 };
 
-export default AddProductsForm;
+export default UpdatePage;

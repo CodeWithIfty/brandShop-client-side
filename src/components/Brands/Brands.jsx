@@ -32,7 +32,7 @@ export default function Brands() {
     },
     {
       img: "https://i.ibb.co/30gwF6j/571-5714853-clipart1132388-circle-mcdonalds-logo-png-transparent-png.png",
-      name: "McDonald's",
+      name: "Macdonald's",
     },
     {
       img: "https://i.ibb.co/j4cbqGD/2034px-Starbucks-Corporation-Logo-2011-svg.png",
@@ -61,7 +61,7 @@ export default function Brands() {
     >
       {brands.map((item, i) => {
         return (
-          <Link key={i} to={'/brand'}>
+          <Link key={i} to={`/brand/${item.name}`}>
             <Brand  variants={items} name={item.name} img={item.img} />
           </Link>
         );

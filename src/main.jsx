@@ -13,6 +13,7 @@ import MyCartPage from "./pages/MyCartPage.jsx";
 import ProductDetailsPage from "./pages/ProductDetailsPage.jsx";
 import ErroPage from "./pages/ErroPage.jsx";
 import PrivateRoute from "./PrivateRoutes/PrivateRoute.jsx";
+import UpdatePage from "./pages/UpdatePage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,18 +34,34 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-products",
-        element: <PrivateRoute><AddProducts /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <AddProducts />
+          </PrivateRoute>
+        ),
       },
       {
-        path: "/brand",
+        path: "/brand/:brand",
         element: <BrandPage />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/product/${params.brand}`),
       },
       { path: "/my-cart", element: <MyCartPage /> },
-      { path: "/product-details", element: <ProductDetailsPage /> },
+      {
+        path: "/product-details/:_id",
+        element: <ProductDetailsPage />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/product-details/${params._id}`),
+      },
+      {
+        path: "/update-product/:_id",
+        element: <UpdatePage />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/product-details/${params._id}`),
+      },
     ],
-    errorElement: <ErroPage/>
+    errorElement: <ErroPage />,
   },
-  
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

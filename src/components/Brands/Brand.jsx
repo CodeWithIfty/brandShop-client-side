@@ -3,7 +3,7 @@ export default function Brand({ name, img, variants }) {
   return (
     <motion.div
       variants={variants}
-      className="relative w-48 h-48 cursor-pointer rounded-full overflow-hidden hover:shadow-lg transition duration-300 border-2 border-gray-400" 
+      className="relative w-48 h-48 cursor-pointer rounded-full overflow-hidden hover:shadow-lg transition duration-300 border-2 border-gray-400"
     >
       <div className="w-full h-full absolute z-10 transition duration-300 ">
         <img src={img} alt={name} className="object-cover w-full h-full " />
