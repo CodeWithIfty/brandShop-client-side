@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Brand from "./Brand";
 import { motion } from "framer-motion";
 
@@ -26,27 +27,27 @@ export default function Brands() {
 
   const brands = [
     {
-      img: "https://i.ibb.co/Ky1Vhdj/coca-cola.webp",
+      img: "https://i.ibb.co/56drWXc/580b57fbd9996e24bc43c0e3.png",
       name: "Coca-Cola",
     },
     {
-      img: "https://i.ibb.co/HY21jBr/4342270a-4ead-11ec-9c1b-c6b8ef9d8663-mcdonalds4.jpg",
+      img: "https://i.ibb.co/30gwF6j/571-5714853-clipart1132388-circle-mcdonalds-logo-png-transparent-png.png",
       name: "McDonald's",
     },
     {
-      img: "https://i.ibb.co/5W87bBy/10710-pe-starbucks-packaging-87516.jpg",
+      img: "https://i.ibb.co/j4cbqGD/2034px-Starbucks-Corporation-Logo-2011-svg.png",
       name: "Starbucks",
     },
     {
-      img: "https://i.ibb.co/7VzRxyk/FRMSIG573-NP7-XJ3-KQWR33-H3-V64.jpg",
+      img: "https://i.ibb.co/gm0zrvm/ddcogmf-77342029-de40-4b3b-afda-fd224cddaa68.png",
       name: "PepsiCo",
     },
     {
-      img: "https://i.ibb.co/CwZWb6H/637861301570268886-Family2017joined.jpg",
+      img: "https://i.ibb.co/HxR4xh8/df58399762267930359bdc4bfbc7a9a2.jpg",
       name: "Nestlé",
     },
     {
-      img: "https://i.ibb.co/HHQvS9G/636428822665200914-IMG-Kellogg-s-2-1-50-II330-E-1.webp",
+      img: "https://i.ibb.co/3TFTySP/png-clipart-kellogg-s-frosted-flakes-rice-krispies-business-nyse-k-business-removebg-preview-1.png",
       name: "Kellogg's",
     },
   ];
@@ -60,7 +61,9 @@ export default function Brands() {
     >
       {brands.map((item, i) => {
         return (
-          <Brand key={i} variants={items} name={item.name} img={item.img} />
+          <Link key={i} to={'/brand'}>
+            <Brand  variants={items} name={item.name} img={item.img} />
+          </Link>
         );
       })}
     </motion.div>
