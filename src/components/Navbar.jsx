@@ -84,14 +84,20 @@ const Navbar = () => {
           ) : user ? (
             <div className="dropdown dropdown-end">
               <div className=" flex items-center">
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full">
-                    <img src="https://i.ibb.co/rHzPb0S/icon-256x256.png" />
-                  </div>
-                </label>
                 <p className="text-black text-sm italic normal-case">
                   {user?.displayName}
                 </p>
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img
+                      src={`${
+                        user.photoURL
+                          ? user.photoURL
+                          : "https://i.ibb.co/rHzPb0S/icon-256x256.png"
+                      }`}
+                    />
+                  </div>
+                </label>
               </div>
               <ul
                 tabIndex={0}
