@@ -1,7 +1,43 @@
+import { useState } from "react";
+
 const AddProductsForm = () => {
+  const [selectedBrand, setSelectedBrand] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [rating, setRating] = useState(0);
+
+  const handleBrandChange = (event) => {
+    setSelectedBrand(event.target.value);
+  };
+
+  const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value);
+  };
+
+  const handleRatingChange = (newRating) => {
+    setRating(newRating);
+  };
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const product_img = form.product_img.value;
+    const product_name = form.product_name.value;
+    const product_price = form.product_price.value;
+    const product_description = form.product_description.value;
+    console.log(
+      product_img,
+      product_name,
+      product_price,
+      product_description,
+      selectedBrand,
+      selectedCategory,
+      rating
+    );
+    form.reset();
+  };
+
   return (
     <div className="container mx-auto bg-yellow-50 my-10 rounded-lg shadow border-2">
-      <form className="p-10">
+      <form className="p-10" onSubmit={handleFormSubmit}>
         <div className="relative z-0 w-full mb-6 group">
           <input
             type="text"
@@ -54,20 +90,22 @@ const AddProductsForm = () => {
         <div className="flex gap-6">
           <div className="relative z-0 w-1/2 mb-6 group">
             <select
-              name="Brand"
-              id=""
+              name="product_brand"
+              value={selectedBrand}
+              onChange={handleBrandChange}
               className="w-full py-2 mt-2 bg-transparent border-b-2 border-gray-600 focus:border-none  text-lg font-semibold text-yellow-900"
             >
               <option value="">Select Brand</option>
-              <option value="">Coca-Cola</option>
-              <option value="">Macdonald's</option>
+              <option value="Coca-Cola">Coca-Cola</option>
+              <option value="Macdonald's">Macdonald's</option>
             </select>
           </div>
 
           <div className="relative z-0 w-1/2 mb-6 group">
             <select
-              name="Category"
-              id=""
+              name="product_category"
+              value={selectedCategory}
+              onChange={handleCategoryChange}
               className="w-full py-2 mt-2 bg-transparent border-b-2 border-gray-600 focus:border-none  text-lg font-semibold text-yellow-900"
             >
               <option value="">Select Category</option>
@@ -79,7 +117,7 @@ const AddProductsForm = () => {
 
         <div className="w-full">
           <textarea
-            name=""
+            name="product_description"
             id=""
             rows="5"
             className="w-full bg-transparent border-2 border-gray-600 p-3"
@@ -91,32 +129,16 @@ const AddProductsForm = () => {
             <h1>Rating</h1>
           </div>
           <div className="rating">
-            <input
-              type="radio"
-              name="rating-2"
-              className="mask mask-star-2 bg-orange-400"
-            />
-            <input
-              type="radio"
-              name="rating-2"
-              className="mask mask-star-2 bg-orange-400"
-              checked
-            />
-            <input
-              type="radio"
-              name="rating-2"
-              className="mask mask-star-2 bg-orange-400"
-            />
-            <input
-              type="radio"
-              name="rating-2"
-              className="mask mask-star-2 bg-orange-400"
-            />
-            <input
-              type="radio"
-              name="rating-2"
-              className="mask mask-star-2 bg-orange-400"
-            />
+            {[1, 2, 3, 4, 5].map((star) => (
+              <input
+                key={star}
+                type="radio"
+                name="rating"
+                className="mask mask-star-2 bg-orange-400"
+                checked={star === rating}
+                onChange={() => handleRatingChange(star)}
+              />
+            ))}
           </div>
         </div>
 

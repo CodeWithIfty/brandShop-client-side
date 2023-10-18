@@ -1,6 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
+import { useContext } from "react";
+import { authContext } from "../context/AuthProvider";
 const Navbar = () => {
+  const { user, loading, SignOutUser } = useContext(authContext);
+  const handleLogout = () => {
+    SignOutUser();
+  };
   return (
     <div className="">
       <div className="navbar bg-base-100 container  mx-auto">
@@ -27,13 +33,19 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a className="block md:px-4 transition text-gray-600 dark:hover:text-yellow-300 hover:text-yellow-700">Home</a>
+                <a className="block md:px-4 transition text-gray-600 dark:hover:text-yellow-300 hover:text-yellow-700">
+                  Home
+                </a>
               </li>
               <li>
-                <a className="block md:px-4 transition text-gray-600 dark:hover:text-yellow-300 hover:text-yellow-700">Add Product</a>
+                <a className="block md:px-4 transition text-gray-600 dark:hover:text-yellow-300 hover:text-yellow-700">
+                  Add Product
+                </a>
               </li>
               <li>
-                <a className="block md:px-4 transition text-gray-600 dark:hover:text-yellow-300 hover:text-yellow-700">My Cart</a>
+                <a className="block md:px-4 transition text-gray-600 dark:hover:text-yellow-300 hover:text-yellow-700">
+                  My Cart
+                </a>
               </li>
             </ul>
           </div>
@@ -46,22 +58,69 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <NavLink to={'/'} className="block md:px-4 transition text-gray-600 ">Home</NavLink>
+              <NavLink
+                to={"/"}
+                className="block md:px-4 transition text-gray-600 "
+              >
+                Home
+              </NavLink>
             </li>
             <li>
-              <NavLink to={'/add-products'} className="block md:px-4 transition text-gray-600 ">Add Product</NavLink>
-            </li >
+              <NavLink
+                to={"/add-products"}
+                className="block md:px-4 transition text-gray-600 "
+              >
+                Add Product
+              </NavLink>
+            </li>
             <li>
               <a className="block md:px-4 transition text-gray-600 ">My Cart</a>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to={'/login'} className="btn font-bold bg-yellow-300 hover:bg-yellow-100 active:bg-yellow-400 focus:bg-yellow-300">
-            <span className="block text-yellow-900 uppercase font-semibold text-sm">
-              Login
-            </span>
-          </Link>
+          {loading ? (
+            <span className="loading loading-ring loading-md scale-150 mr-5"></span>
+          ) : user ? (
+            <div className="dropdown dropdown-end">
+              <div className=" flex items-center">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img src="https://i.ibb.co/rHzPb0S/icon-256x256.png" />
+                  </div>
+                </label>
+                <p className="text-black text-sm italic normal-case">
+                  {user?.displayName}
+                </p>
+              </div>
+              <ul
+                tabIndex={0}
+                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </a>
+                </li>
+                <li>
+                  <a>Settings</a>
+                </li>
+                <li>
+                  <a onClick={handleLogout}>Logout</a>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <Link
+              to={"/login"}
+              className="btn font-bold bg-yellow-300 hover:bg-yellow-100 active:bg-yellow-400 focus:bg-yellow-300"
+            >
+              <span className="block text-yellow-900 uppercase font-semibold text-sm">
+                Login
+              </span>
+            </Link>
+          )}
         </div>
       </div>
     </div>

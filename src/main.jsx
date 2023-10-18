@@ -12,6 +12,7 @@ import BrandPage from "./pages/BrandPage/BrandPage.jsx";
 import MyCartPage from "./pages/MyCartPage.jsx";
 import ProductDetailsPage from "./pages/ProductDetailsPage.jsx";
 import ErroPage from "./pages/ErroPage.jsx";
+import PrivateRoute from "./PrivateRoutes/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-products",
-        element: <AddProducts />,
+        element: <PrivateRoute><AddProducts /></PrivateRoute>,
       },
       {
         path: "/brand",
