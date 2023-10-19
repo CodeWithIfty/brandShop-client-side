@@ -24,11 +24,13 @@ const ProductDetailsPage = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         toast("Product Added on your Cart :)");
       })
-      .catch(err => {console.log(err)
-        toast("Already added on your cart :(");})
+      .catch((err) => {
+        // console.log(err);
+        toast("Already added on your cart :(");
+      });
   };
   return (
     <div className="bg-gray-100 dark:bg-gray-800 py-8">

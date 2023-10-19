@@ -6,7 +6,6 @@ const ProductCard = ({ product }) => {
     product_img,
     product_name,
     product_price,
-    product_description,
     selectedBrand,
     selectedCategory,
     rating,

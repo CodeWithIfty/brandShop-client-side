@@ -33,15 +33,7 @@ const AddProductsForm = () => {
       selectedCategory,
       rating,
     };
-    console.log(
-      product_img,
-      product_name,
-      product_price,
-      product_description,
-      selectedBrand,
-      selectedCategory,
-      rating
-    );
+
     fetch("http://localhost:3000/product", {
       method: "POST",
       headers: {
@@ -51,7 +43,7 @@ const AddProductsForm = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         toast("Product Updated Successfully :)");
       });
     form.reset();

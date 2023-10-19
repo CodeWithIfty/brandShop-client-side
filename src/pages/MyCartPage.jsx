@@ -1,9 +1,10 @@
+import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const MyCartPage = () => {
   const cartProducts = useLoaderData();
-  console.log(cartProducts);
+  const [newProduct, setNewProduct] = useState([]);
 
   const handleDeleteProduct = (_id) => {
     Swal.fire({
@@ -16,12 +17,14 @@ const MyCartPage = () => {
           method: "DELETE",
         })
           .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
+          .then(() => {
+            const afterDeletedProduct = cartProducts.filter(
+              (product) => product._id !== _id
+            );
+            setNewProduct(afterDeletedProduct);
             Swal.fire("Deleted!", "", "success");
           })
-          .catch((error) => {
-            console.error("Error deleting user:", error);
+          .catch(() => {
             Swal.fire("Error deleting user", "", "error");
           });
       } else if (result.isDenied) {
@@ -35,7 +38,7 @@ const MyCartPage = () => {
         <h1 className="text-3xl font-bold text-center">My Cart</h1>
       </div>
       <div className="flex my-12 gap-5">
-        {cartProducts?.map(
+        {(newProduct.length > 0 ? newProduct : cartProducts).map(
           ({
             _id,
             product_img,

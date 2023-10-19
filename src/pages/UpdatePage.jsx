@@ -213,4 +213,3 @@ const UpdatePage = () => {
 };
 
 export default UpdatePage;
-
