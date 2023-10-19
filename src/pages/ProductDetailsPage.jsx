@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const ProductDetailsPage = () => {
   const product = useLoaderData();
@@ -12,6 +13,21 @@ const ProductDetailsPage = () => {
     selectedCategory,
     rating,
   } = product;
+
+  const handleAddToCart = (product) => {
+    fetch("http://localhost:3000/add-to-cart", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast("Product Added on your Cart :)");
+      });
+  };
   return (
     <div className="bg-gray-100 dark:bg-gray-800 py-8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,7 +42,10 @@ const ProductDetailsPage = () => {
             </div>
             <div className="flex -mx-2 mb-4">
               <div className="w-1/2 mx-auto px-2">
-                <button className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">
+                <button
+                  onClick={() => handleAddToCart(product)}
+                  className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700"
+                >
                   Add to Cart
                 </button>
               </div>

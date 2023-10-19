@@ -56,7 +56,7 @@ export default function HeroLeft() {
             whileHover="hover"
             className="py-1 px-4 font-[500] rounded-full bg-slate-400/30 text-black text-lg  transition-gpu "
           >
-            Book Table
+            Contact Us
           </motion.button>
         </motion.div>
         <Reviews />

@@ -33,19 +33,28 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a className="block md:px-4 transition text-gray-600 dark:hover:text-yellow-300 hover:text-yellow-700">
+                <NavLink
+                  to={"/"}
+                  className="block md:px-4 transition text-gray-600 "
+                >
                   Home
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a className="block md:px-4 transition text-gray-600 dark:hover:text-yellow-300 hover:text-yellow-700">
+                <NavLink
+                  to={"/add-products"}
+                  className="block md:px-4 transition text-gray-600 "
+                >
                   Add Product
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a className="block md:px-4 transition text-gray-600 dark:hover:text-yellow-300 hover:text-yellow-700">
+                <NavLink
+                  to={"/my-cart"}
+                  className="block md:px-4 transition text-gray-600 dark:hover:text-yellow-300 hover:text-yellow-700"
+                >
                   My Cart
-                </a>
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -74,7 +83,12 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <a className="block md:px-4 transition text-gray-600 ">My Cart</a>
+              <NavLink
+                to={"/my-cart"}
+                className="block md:px-4 transition text-gray-600 dark:hover:text-yellow-300 hover:text-yellow-700"
+              >
+                My Cart
+              </NavLink>
             </li>
           </ul>
         </div>
