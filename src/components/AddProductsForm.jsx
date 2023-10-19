@@ -34,7 +34,7 @@ const AddProductsForm = () => {
       rating,
     };
 
-    fetch("http://localhost:3000/product", {
+    fetch("https://b8-a10-brand-shop-server-side-2zkxly4jb.vercel.app/product", {
       method: "POST",
       headers: {
         "content-type": "application/json",
