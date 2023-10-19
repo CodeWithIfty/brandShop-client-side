@@ -13,7 +13,7 @@ const MyCartPage = () => {
       confirmButtonText: "OK",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://b8-a10-brand-shop-server-side-2zkxly4jb.vercel.app/cart-products-delete/${_id}`, {
+        fetch(`https://b8-a10-brand-shop-server-side-tau.vercel.app/cart-products-delete/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

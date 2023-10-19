@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         path: "/brand/:brand",
         element: <BrandPage />,
         loader: ({ params }) =>
-          fetch(`https://b8-a10-brand-shop-server-side-2zkxly4jb.vercel.app/product/${params.brand}`),
+          fetch(`https://b8-a10-brand-shop-server-side-tau.vercel.app/product/${params.brand}`),
       },
       {
         path: "/my-cart",
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
             <MyCartPage />
           </PrivateRoute>
         ),
-        loader: () => fetch("https://b8-a10-brand-shop-server-side-2zkxly4jb.vercel.app/cart-products"),
+        loader: () => fetch("https://b8-a10-brand-shop-server-side-tau.vercel.app/cart-products"),
       },
       {
         path: "/product-details/:_id",
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://b8-a10-brand-shop-server-side-2zkxly4jb.vercel.app/product-details/${params._id}`),
+          fetch(`https://b8-a10-brand-shop-server-side-tau.vercel.app/product-details/${params._id}`),
       },
       {
         path: "/update-product/:_id",
@@ -73,7 +73,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://b8-a10-brand-shop-server-side-2zkxly4jb.vercel.app/product-details/${params._id}`),
+          fetch(`https://b8-a10-brand-shop-server-side-tau.vercel.app/product-details/${params._id}`),
       },
     ],
     errorElement: <ErroPage />,

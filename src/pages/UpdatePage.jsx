@@ -47,7 +47,7 @@ const UpdatePage = () => {
       updatedRating,
     };
     console.log(updatedProduct);
-    fetch(`https://b8-a10-brand-shop-server-side-2zkxly4jb.vercel.app/product-update/${_id}`, {
+    fetch(`https://b8-a10-brand-shop-server-side-tau.vercel.app/product-update/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

@@ -13,7 +13,7 @@ const ProductDetailsPage = () => {
   } = product;
 
   const handleAddToCart = (product) => {
-    fetch("https://b8-a10-brand-shop-server-side-2zkxly4jb.vercel.app/add-to-cart", {
+    fetch("https://b8-a10-brand-shop-server-side-tau.vercel.app/add-to-cart", {
       method: "POST",
       headers: {
         "content-type": "application/json",
