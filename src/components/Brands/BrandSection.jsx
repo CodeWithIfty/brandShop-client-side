@@ -15,7 +15,9 @@ export default function BrandSection() {
           </p>
           <hr className="sm:w-14 w-40  border-[#FF6600] border-2 " />
         </div>
-        <Brands />
+       <div className=" mx-auto">
+       <Brands />
+       </div>
       </div>
     </div>
   );

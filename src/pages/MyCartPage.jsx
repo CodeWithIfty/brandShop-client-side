@@ -37,7 +37,7 @@ const MyCartPage = () => {
       <div className="my-10">
         <h1 className="text-3xl font-bold text-center">My Cart</h1>
       </div>
-      <div className="flex my-12 gap-5">
+      <div className="flex flex-wrap justify-center my-12 gap-10">
         {(newProduct.length > 0 ? newProduct : cartProducts).map(
           ({
             _id,

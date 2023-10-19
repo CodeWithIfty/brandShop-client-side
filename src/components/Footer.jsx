@@ -23,7 +23,7 @@ const Footer = () => {
               <span>Terms of service</span>
             </a>
           </div>
-          <div className="flex flex-row sm:items-auto justify-center text-center py-3 lg:items-auto gap-3">
+          <div className="flex flex-row flex-wrap sm:items-auto justify-center text-center py-3 lg:items-auto gap-3">
             <a target="blank" href="/">
               <button className="border border-[#FF6600]/80 rounded-full py-1 px-4 hover:bg-[#FF6600]/80 transition duration-300 ease-in-out">
                 Whatsapp

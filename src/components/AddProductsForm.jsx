@@ -44,7 +44,7 @@ const AddProductsForm = () => {
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
-        toast("Product Updated Successfully :)");
+        toast("Product Added Successfully :)");
       });
     form.reset();
   };

@@ -57,12 +57,12 @@ export default function Brands() {
       viewport={{ once: true }}
       initial="hidden"
       whileInView="show"
-      className="grid grid-cols-6 py-10  "
+      className="grid xl:grid-cols-6 py-10 lg:grid-cols-3 grid-cols-2   md:gap-10 gap-5"
     >
       {brands.map((item, i) => {
         return (
           <Link key={i} to={`/brand/${item.name}`}>
-            <Brand  variants={items} name={item.name} img={item.img} />
+            <Brand variants={items} name={item.name} img={item.img} />
           </Link>
         );
       })}
