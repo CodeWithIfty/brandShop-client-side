@@ -1,10 +1,36 @@
 import { Link, useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyCartPage = () => {
   const cartProducts = useLoaderData();
   console.log(cartProducts);
+
+  const handleDeleteProduct = (_id) => {
+    Swal.fire({
+      title: "Do you really want to delete this user?",
+      showCancelButton: true,
+      confirmButtonText: "OK",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/cart-products-delete/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            Swal.fire("Deleted!", "", "success");
+          })
+          .catch((error) => {
+            console.error("Error deleting user:", error);
+            Swal.fire("Error deleting user", "", "error");
+          });
+      } else if (result.isDenied) {
+        Swal.fire("Changes are not saved", "", "info");
+      }
+    });
+  };
   return (
-    <div className="">
+    <div className="container mx-auto">
       <div className="my-10">
         <h1 className="text-3xl font-bold text-center">My Cart</h1>
       </div>
@@ -15,7 +41,6 @@ const MyCartPage = () => {
             product_img,
             product_name,
             product_price,
-            product_description,
             selectedBrand,
             selectedCategory,
             rating,
@@ -59,7 +84,12 @@ const MyCartPage = () => {
                   >
                     Details
                   </Link>
-                  <button className="btn bg-error text-white">Delete</button>
+                  <button
+                    className="btn bg-error text-white"
+                    onClick={() => handleDeleteProduct(_id)}
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             </div>
