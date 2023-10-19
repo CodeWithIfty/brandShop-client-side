@@ -10,3 +10,6 @@
 [data-theme="dark"] .dark-text {
   color: white;
 }
+[data-theme="light"] .light-text {
+  color: gray;
+}

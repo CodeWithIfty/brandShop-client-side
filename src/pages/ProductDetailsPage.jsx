@@ -1,16 +1,14 @@
 import { useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
+import "../components/styles/custom-style.css";
 
 const ProductDetailsPage = () => {
   const product = useLoaderData();
   const {
-    _id,
     product_img,
     product_name,
     product_price,
     product_description,
-    selectedBrand,
-    selectedCategory,
     rating,
   } = product;
 
@@ -23,17 +21,15 @@ const ProductDetailsPage = () => {
       body: JSON.stringify(product),
     })
       .then((res) => res.json())
-      .then((data) => {
-        // console.log(data);
+      .then(() => {
         toast("Product Added on your Cart :)");
       })
-      .catch((err) => {
-        // console.log(err);
+      .catch(() => {
         toast("Already added on your cart :(");
       });
   };
   return (
-    <div className="bg-gray-100 dark:bg-gray-800 py-8">
+    <div className="bg-gray-100 dark-bg py-8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row -mx-4">
           <div className="md:flex-1 px-4">
@@ -56,26 +52,19 @@ const ProductDetailsPage = () => {
             </div>
           </div>
           <div className="md:flex-1 px-4">
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+            <h2 className="text-2xl font-bold text-black dark-text mb-2">
               {product_name}
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
+            <p className="text-gray-600  light-text text-sm mb-4">
               {product_description.substring(0, 150)}...
             </p>
             <div className="flex mb-4">
               <div className="mr-4">
-                <span className="font-bold text-gray-700 dark:text-gray-300">
-                  Price:{" "}
-                </span>
-                <span className="text-gray-600 dark:text-gray-300">
-                  ${product_price}
-                </span>
+                <span className="font-bold text-black  dark-text">Price: </span>
+                <span className="text-gray-600 ">${product_price}</span>
               </div>
             </div>
             <div className="mb-4">
-              <span className="font-bold text-gray-700 dark:text-gray-300">
-                Rating:
-              </span>
               <div className="rating my-2">
                 <span className="font-bold mr-1">Rating: </span>
                 {Array.from({ length: rating }, (_, index) => (
@@ -91,10 +80,10 @@ const ProductDetailsPage = () => {
             </div>
 
             <div>
-              <span className="font-bold text-gray-700 dark:text-gray-300">
+              <span className="font-bold text-gray-700 dark-text ">
                 Product Description:
               </span>
-              <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
+              <p className="text-gray-600  text-sm mt-2">
                 {product_description}
               </p>
             </div>
