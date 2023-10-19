@@ -9,9 +9,7 @@ export default function BrandSection() {
             Our <span className="text-[#FF6600]">Brands</span>
           </h1>
           <p className=" w-[35ch] text-gray-600/70 px-3 sm:w-7/12 justify-center text-center">
-            Lorem ipsum dolor sit amet consectetur, Lorem ipsum dolor, sit amet
-            consectetur adipisicing elit. Eaque, earum. adipisicing elit. Error,
-            similique.
+            Here is Our All Brands
           </p>
           <hr className="sm:w-14 w-40  border-[#FF6600] border-2 " />
         </div>

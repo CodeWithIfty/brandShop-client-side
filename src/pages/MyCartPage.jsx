@@ -8,7 +8,7 @@ const MyCartPage = () => {
 
   const handleDeleteProduct = (_id) => {
     Swal.fire({
-      title: "Do you really want to delete this user?",
+      title: "Do you really want to delete this Product?",
       showCancelButton: true,
       confirmButtonText: "OK",
     }).then((result) => {
@@ -25,7 +25,7 @@ const MyCartPage = () => {
             Swal.fire("Deleted!", "", "success");
           })
           .catch(() => {
-            Swal.fire("Error deleting user", "", "error");
+            Swal.fire("Error deleting product", "", "error");
           });
       } else if (result.isDenied) {
         Swal.fire("Changes are not saved", "", "info");

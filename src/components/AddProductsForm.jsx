@@ -50,7 +50,7 @@ const AddProductsForm = () => {
   };
 
   return (
-    <div className="container mx-auto bg-yellow-50 my-10 rounded-lg shadow border-2">
+    <div className="container mx-auto bg-yellow-50 dark:bg-transparent my-10 rounded-lg shadow border-2">
       <form className="p-10" onSubmit={handleFormSubmit}>
         <div className="relative z-0 w-full mb-6 group">
           <input
