@@ -82,13 +82,13 @@ const MyCartPage = () => {
                 </div>
                 <div className="card-actions justify-center">
                   <Link
-                    className="btn bg-success "
+                    className="btn bg-success dark-text"
                     to={`/product-details/${_id}`}
                   >
                     Details
                   </Link>
                   <button
-                    className="btn bg-error text-white"
+                    className="btn bg-error dark-text"
                     onClick={() => handleDeleteProduct(_id)}
                   >
                     Delete

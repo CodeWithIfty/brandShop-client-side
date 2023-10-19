@@ -11,7 +11,7 @@ export default function Coldesign({ icon, name, des }) {
         <h1 className="sm:font-bold text-xs sm:text-2xl ">{name}</h1>
         <img src={dots} className="w-5 object-fit mx-auto" alt="" />
       </div>
-      <p className=" text-gray-600/70 hidden sm:block text-center ">{des}</p>
+      <p className=" text-gray-600/70 hidden sm:block text-center dark-text">{des}</p>
     </div>
   );
 }

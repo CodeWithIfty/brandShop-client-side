@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { useContext, useEffect, useState } from "react";
 import { authContext } from "../context/AuthProvider";
+import "./styles/custom-style.css"
 const Navbar = () => {
   const [theme, setIsTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
@@ -52,7 +53,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to={"/"}
-                  className="block md:px-4 transition text-gray-600 dark:text-white"
+                  className="block md:px-4 transition text-color"
                 >
                   Home
                 </NavLink>
@@ -60,7 +61,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to={"/add-products"}
-                  className="block md:px-4 transition text-gray-600 dark:text-white"
+                  className="block md:px-4 transition text-color"
                 >
                   Add Product
                 </NavLink>
@@ -68,16 +69,16 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to={"/my-cart"}
-                  className="block md:px-4 transition text-gray-600 dark:hover:text-yellow-300 hover:text-yellow-700 dark:text-white"
+                  className="block md:px-4 transition text-color dark:hover:text-yellow-300 hover:text-yellow-700 "
                 >
                   My Cart
                 </NavLink>
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost  text-2xl uppercase text-yellow-900 font-bold">
+          <a className="btn btn-ghost  text-2xl uppercase text-yellow-900 dark-text font-bold">
             {" "}
-            <img src={logo} alt="Foody" className="w-12" />
+            <img src={logo} alt="Foody" className="w-12 " />
             Foody
           </a>
         </div>
@@ -86,7 +87,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 to={"/"}
-                className="block md:px-4 transition text-gray-600 dark:text-white"
+                className="block md:px-4 transition text-color dark:hover:text-yellow-300 hover:text-yellow-700 font-semibold"
               >
                 Home
               </NavLink>
@@ -94,7 +95,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 to={"/add-products"}
-                className="block md:px-4 transition text-gray-600 dark:text-white"
+                className="block md:px-4 transition text-color dark:hover:text-yellow-300 hover:text-yellow-700 font-semibold"
               >
                 Add Product
               </NavLink>
@@ -102,7 +103,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 to={"/my-cart"}
-                className="block md:px-4 transition text-gray-600 dark:hover:text-yellow-300 hover:text-yellow-700 dark:text-white"
+                className="block md:px-4 transition text-color dark:hover:text-yellow-300 hover:text-yellow-700 font-semibold"
               >
                 My Cart
               </NavLink>
@@ -115,7 +116,7 @@ const Navbar = () => {
           ) : user ? (
             <div className="dropdown dropdown-end">
               <div className=" flex items-center">
-                <p className="text-black text-sm italic normal-case dark:text-white">
+                <p className=" text-sm italic normal-case text-color">
                   {user?.displayName}
                 </p>
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

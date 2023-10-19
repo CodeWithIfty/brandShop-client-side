@@ -54,7 +54,7 @@ export default function HeroLeft() {
             animate="animate"
             initial="initial"
             whileHover="hover"
-            className="py-1 px-4 font-[500] rounded-full bg-slate-400/30 text-black text-lg  transition-gpu "
+            className="py-1 px-4 font-[500] rounded-full bg-slate-400/30 text-color text-lg  transition-gpu "
           >
             Contact Us
           </motion.button>

@@ -39,12 +39,12 @@ const ProductCard = ({ product }) => {
             />
           ))}
         </div>
-        <div className="card-actions justify-center">
-          <Link className="btn bg-success " to={`/product-details/${_id}`}>
+        <div className="card-actions justify-center ">
+          <Link className="btn bg-success dark-text " to={`/product-details/${_id}`}>
             Details
           </Link>
           <Link
-            className="btn bg-primary text-white"
+            className="btn bg-primary text-white dark-text"
             to={`/update-product/${_id}`}
           >
             Update

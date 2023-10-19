@@ -50,7 +50,7 @@ const AddProductsForm = () => {
   };
 
   return (
-    <div className="container mx-auto bg-yellow-50 dark:bg-transparent my-10 rounded-lg shadow border-2">
+    <div className="container mx-auto bg-yellow-50 dark-bg my-10 rounded-lg shadow border">
       <form className="p-10" onSubmit={handleFormSubmit}>
         <div className="relative z-0 w-full mb-6 group">
           <input
@@ -107,7 +107,7 @@ const AddProductsForm = () => {
               name="product_brand"
               value={selectedBrand}
               onChange={handleBrandChange}
-              className="w-full py-2 mt-2 bg-transparent border-b-2 border-gray-600 focus:border-none  text-lg font-semibold text-yellow-900"
+              className="w-full py-2 mt-2 bg-transparent border-b-2 border-gray-600 focus:border-none  text-lg font-semibold dark-text text-yellow-900"
               required
             >
               <option value="">Select Brand</option>
@@ -125,7 +125,7 @@ const AddProductsForm = () => {
               name="product_category"
               value={selectedCategory}
               onChange={handleCategoryChange}
-              className="w-full py-2 mt-2 bg-transparent border-b-2 border-gray-600 focus:border-none  text-lg font-semibold text-yellow-900"
+              className="w-full py-2 mt-2 bg-transparent border-b-2 border-gray-600 focus:border-none  text-lg font-semibold dark-text text-yellow-900"
               required
             >
               <option value="">Select Category</option>
@@ -196,7 +196,7 @@ const AddProductsForm = () => {
 
         <button
           type="submit"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg w-full sm:w-auto px-5 py-2.5 text-center dark:bg-yellow-300 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="dark-text dark-bg border bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg w-full sm:w-auto px-5 py-2.5 text-center dark:bg-yellow-300 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           Submit
         </button>

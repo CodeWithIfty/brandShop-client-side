@@ -16,11 +16,11 @@ export default function ContactSection() {
                 Online
               </h1>
             </div>
-            <p className="text-gray-700 text-medium ">
+            <p className="text-gray-700 text-medium dark-text">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste
               quam distinctio eaque saepe sed ratione.
             </p>
-            <p className="text-gray-700 text-medium ">
+            <p className="text-gray-700 text-medium dark-text">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste
               quam distinctio eaque saepe sed ratione.
             </p>
@@ -46,7 +46,7 @@ export default function ContactSection() {
             <input
               type="email"
               placeholder="Email"
-              className="border border-[#FF6600]/60 rounded placeholder-gray-600 py-4 px-3"
+              className="border border-[#FF6600]/60 rounded placeholder-gray-600 py-4 px-3 "
             />
             <input
               type="number"

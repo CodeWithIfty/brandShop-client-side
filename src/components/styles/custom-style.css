@@ -1,0 +1,12 @@
+[data-theme="dark"] .text-color {
+  color: white;
+}
+[data-theme="light"] .text-color {
+  color: black;
+}
+[data-theme="dark"] .dark-bg {
+  background-color: transparent;
+}
+[data-theme="dark"] .dark-text {
+  color: white;
+}
