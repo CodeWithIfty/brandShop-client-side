@@ -2,12 +2,13 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { useContext, useEffect, useState } from "react";
 import { authContext } from "../context/AuthProvider";
-import "./styles/custom-style.css"
+import "./styles/custom-style.css";
 const Navbar = () => {
   const [theme, setIsTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
   );
   const { user, loading, SignOutUser } = useContext(authContext);
+  const userEmail = user?.uid;
   const handleLogout = () => {
     SignOutUser();
   };
@@ -102,7 +103,7 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to={"/my-cart"}
+                to={`/my-cart/${userEmail}`}
                 className="block md:px-4 transition text-color dark:hover:text-yellow-300 hover:text-yellow-700 font-semibold"
               >
                 My Cart

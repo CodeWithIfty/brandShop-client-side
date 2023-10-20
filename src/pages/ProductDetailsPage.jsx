@@ -1,8 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
 import "../components/styles/custom-style.css";
+import { authContext } from "../context/AuthProvider";
+import { useContext } from "react";
 
 const ProductDetailsPage = () => {
+  const { user } = useContext(authContext);
+// console.log(user.uid)
   const product = useLoaderData();
   const {
     product_img,
@@ -13,12 +17,17 @@ const ProductDetailsPage = () => {
   } = product;
 
   const handleAddToCart = (product) => {
-    fetch("https://b8-a10-brand-shop-server-side-tau.vercel.app/add-to-cart", {
+    const data = {
+      product,
+      userEmail: user.uid,
+    };
+    // console.log(data);
+    fetch("http://localhost:3000/add-to-cart", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(product),
+      body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then(() => {
@@ -56,7 +65,7 @@ const ProductDetailsPage = () => {
               {product_name}
             </h2>
             <p className="text-gray-600  light-text text-sm mb-4">
-              {product_description.substring(0, 150)}...
+              {product_description?.substring(0, 150)}...
             </p>
             <div className="flex mb-4">
               <div className="mr-4">

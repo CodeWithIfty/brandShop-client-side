@@ -44,16 +44,21 @@ const router = createBrowserRouter([
         path: "/brand/:brand",
         element: <BrandPage />,
         loader: ({ params }) =>
-          fetch(`https://b8-a10-brand-shop-server-side-tau.vercel.app/product/${params.brand}`),
+          fetch(
+            `http://localhost:3000/product/${params.brand}`
+          ),
       },
       {
-        path: "/my-cart",
+        path: "/my-cart/:email",
         element: (
           <PrivateRoute>
             <MyCartPage />
           </PrivateRoute>
         ),
-        loader: () => fetch("https://b8-a10-brand-shop-server-side-tau.vercel.app/cart-products"),
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:3000/cart-products/${params.email}`
+          ),
       },
       {
         path: "/product-details/:_id",
@@ -63,7 +68,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://b8-a10-brand-shop-server-side-tau.vercel.app/product-details/${params._id}`),
+          fetch(
+            `http://localhost:3000/product-details/${params._id}`
+          ),
       },
       {
         path: "/update-product/:_id",
@@ -73,7 +80,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://b8-a10-brand-shop-server-side-tau.vercel.app/product-details/${params._id}`),
+          fetch(
+            `http://localhost:3000/product-details/${params._id}`
+          ),
       },
     ],
     errorElement: <ErroPage />,

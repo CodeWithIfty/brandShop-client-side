@@ -4,7 +4,6 @@ import ProductCarousel from "./ProductCarousel";
 
 const BrandPage = () => {
   const products = useLoaderData();
-  console.log(products);
   return (
     <div className="">
       {products.length > 0 ? (

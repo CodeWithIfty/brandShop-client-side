@@ -1,5 +1,4 @@
-import AddProductsForm from "../components/AddProductsForm"
-
+import AddProductsForm from "../components/AddProductsForm";
 
 const AddProducts = () => {
   return (
@@ -7,9 +6,9 @@ const AddProducts = () => {
       <div className="my-10 text-center">
         <h1 className="text-3xl font-bold">Add Products</h1>
       </div>
-      <AddProductsForm/>
+      <AddProductsForm />
     </div>
-  )
-}
+  );
+};
 
-export default AddProducts
+export default AddProducts;
