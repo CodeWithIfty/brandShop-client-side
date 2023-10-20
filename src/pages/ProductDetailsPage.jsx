@@ -22,7 +22,7 @@ const ProductDetailsPage = () => {
       userEmail: user.uid,
     };
     // console.log(data);
-    fetch("http://localhost:3000/add-to-cart", {
+    fetch("https://b8-a10-brand-shop-server-side-tau.vercel.app/add-to-cart", {
       method: "POST",
       headers: {
         "content-type": "application/json",

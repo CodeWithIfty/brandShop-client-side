@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         element: <BrandPage />,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:3000/product/${params.brand}`
+            `https://b8-a10-brand-shop-server-side-tau.vercel.app/product/${params.brand}`
           ),
       },
       {
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `http://localhost:3000/cart-products/${params.email}`
+            `https://b8-a10-brand-shop-server-side-tau.vercel.app/cart-products/${params.email}`
           ),
       },
       {
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `http://localhost:3000/product-details/${params._id}`
+            `https://b8-a10-brand-shop-server-side-tau.vercel.app/product-details/${params._id}`
           ),
       },
       {
@@ -81,7 +81,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `http://localhost:3000/product-details/${params._id}`
+            `https://b8-a10-brand-shop-server-side-tau.vercel.app/product-details/${params._id}`
           ),
       },
     ],
