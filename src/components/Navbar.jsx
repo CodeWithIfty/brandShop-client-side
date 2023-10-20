@@ -77,11 +77,11 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost  text-2xl uppercase text-yellow-900 dark-text font-bold">
+          <Link to={"/"} className="btn btn-ghost  text-2xl uppercase text-yellow-900 dark-text font-bold">
             {" "}
             <img src={logo} alt="Foody" className="w-12 " />
             Foody
-          </a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
